@@ -1,0 +1,59 @@
+{
+  "name": "foxglove-rtsp-webrtc-extension",
+  "displayName": "RTSP WebRTC Extension",
+  "description": "Low-latency WebRTC & RTSP camera streaming extension for Foxglove Studio & Lichtblick Suite. Built for robotics teleoperation, image snapshots, and video recording.",
+  "publisher": "aminballoon",
+  "author": "aminballoon",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "./dist/extension.js",
+  "keywords": [
+    "foxglove",
+    "lichtblick",
+    "rtsp",
+    "webrtc",
+    "go2rtc",
+    "video",
+    "streaming",
+    "robotics"
+  ],
+  "scripts": {
+    "build": "foxglove-extension build",
+    "foxglove:prepublish": "foxglove-extension build --mode production",
+    "lint:ci": "eslint --report-unused-disable-directives .",
+    "lint": "eslint --report-unused-disable-directives --fix .",
+    "local-install": "foxglove-extension install",
+    "package": "foxglove-extension package",
+    "pretest": "foxglove-extension pretest"
+  },
+  "devDependencies": {
+    "@foxglove/eslint-plugin": "0.20.0",
+    "@foxglove/studio": "1.29.1",
+    "@types/lodash": "4.14.186",
+    "@types/react-dom": "18.0.6",
+    "@types/react": "18.0.21",
+    "@typescript-eslint/eslint-plugin": "5.40.1",
+    "@typescript-eslint/parser": "5.40.1",
+    "create-foxglove-extension": "0.6.1",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-es": "4.1.0",
+    "eslint-plugin-filenames": "1.3.2",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jest": "27.1.3",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react": "7.31.10",
+    "eslint": "8.25.0",
+    "lodash": "4.17.21",
+    "prettier": "2.7.1",
+    "react-dom": "18.2.0",
+    "react": "18.2.0",
+    "ts-essentials": "9.3.0",
+    "typescript": "4.8.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aminballoon/foxglove-rtsp-webrtc-extension.git"
+  },
+  "homepage": "https://github.com/aminballoon/foxglove-rtsp-webrtc-extension"
+}
