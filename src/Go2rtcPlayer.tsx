@@ -161,7 +161,7 @@ function buildSettingsTree(config: Config): SettingsTreeNodes {
         input: "select",
         value: config.mode,
         options: [
-          { label: "WebRTC Direct UDP (~30-50ms Lowest Latency)", value: "webrtc" },
+          { label: "WebRTC Direct UDP (Lowest Latency)", value: "webrtc" },
           { label: "WebRTC + MSE Auto Fallback", value: "webrtc,mse" },
           { label: "MSE (Low-Latency)", value: "mse" },
         ],

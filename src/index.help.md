@@ -3,7 +3,7 @@
 Ultra low-latency video streaming player designed for robotic teleoperation and GCS camera monitoring.
 
 ## Features
-- **Low Latency**: ~30-50ms glass-to-glass latency via WebRTC Direct UDP.
+- **Low Latency**: Real-time low latency via WebRTC Direct UDP.
 - **High-Res Snapshot**: Captures full uncompressed 4K/1080p frames directly from the decoder.
 - **Video Recording**: Start/stop live video recording directly to disk without adding stream delay.
 - **Diagnostics**: Real-time logging of connection states, packet stats, and decoder events.

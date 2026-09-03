@@ -2,7 +2,7 @@
 
 An Ultra Low-Latency WebRTC Video Streaming Panel for **Foxglove Studio** and **Lichtblick Suite**, powered by [go2rtc](https://github.com/AlexxIT/go2rtc).
 
-Designed specifically for real-time robotic teleoperation, remote vehicle control (GCS), and low-latency camera monitoring (~30–50 ms latency).
+Designed specifically for real-time robotic teleoperation, remote vehicle control (GCS), and low-latency camera monitoring.
 
 ---
 
@@ -11,7 +11,7 @@ Designed specifically for real-time robotic teleoperation, remote vehicle contro
 - ⚡ **Direct RTSP URL Input (No Manual Server Config Needed)**
   - Simply paste your RTSP camera URL directly into the panel settings.
   - The extension automatically registers the dynamic endpoint with the go2rtc backend and connects via WebRTC in milliseconds.
-- 🏎️ **Ultra Low-Latency Streaming (~30–50 ms)**
+- 🏎️ **Ultra Low-Latency Streaming**
   - Direct WebRTC UDP transport with zero-delay jitter buffer enforcement (`jitterBufferTarget = 0`, `playoutDelayHint = 0`).
   - Active Real-Time Clock Drift Catch-Up: automatically prevents HTML5 video buffer drift and frame accumulation.
   - Automatic low-latency tuning flags (`#media=video#backchannel=0#transport=tcp#backlog=0`) applied to all RTSP streams.
@@ -35,7 +35,7 @@ Designed specifically for real-time robotic teleoperation, remote vehicle contro
 graph LR
     Camera["IP Camera / Drone<br/>(RTSP H.264/H.265 4K)"] -->|"RTSP / TCP"| go2rtc["go2rtc Gateway<br/>(:1984 / :8555)"]
     Panel["Foxglove / Lichtblick<br/>foxglove-rtsp-webrtc-extension"] -->|"1. Auto Register RTSP URL<br/>PUT /api/streams?name=...&src=..."| go2rtc
-    go2rtc -->|"2. WebRTC Stream<br/>(~30-50ms Low Latency)"| Panel
+    go2rtc -->|"2. WebRTC Stream<br/>(Low Latency)"| Panel
     Panel -->|"📸 4K Snapshot"| Download1["Downloads (.jpg / .png)"]
     Panel -->|"🎬 Video Record"| Download2["Downloads (.webm / .mp4)"]
 ```
@@ -143,7 +143,7 @@ systemctl --user status go2rtc.service
      ```text
      rtsp://admin:password@192.168.1.100:554/live/ch0
      ```
-   - The panel automatically connects with ~30-50ms ultra-low latency!
+   - The panel automatically connects with ultra-low latency!
    - **Video Fit:** Choose `Contain` (keep aspect ratio), `Cover`, or `Fill`.
 
 ### 📸 Taking Snapshots
