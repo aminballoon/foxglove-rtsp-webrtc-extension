@@ -6,43 +6,43 @@ Designed specifically for real-time robotic teleoperation, remote vehicle contro
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-- ⚡ **Direct RTSP URL Input (No Manual Server Config Needed)**
+- **Direct RTSP URL Input (No Manual Server Config Needed)**
   - Simply paste your RTSP camera URL directly into the panel settings.
   - The extension automatically registers the dynamic endpoint with the go2rtc backend and connects via WebRTC in milliseconds.
-- 🏎️ **Ultra Low-Latency Streaming**
+- **Ultra Low-Latency Streaming**
   - Direct WebRTC UDP transport with zero-delay jitter buffer enforcement (`jitterBufferTarget = 0`, `playoutDelayHint = 0`).
   - Active Real-Time Clock Drift Catch-Up: automatically prevents HTML5 video buffer drift and frame accumulation.
   - Automatic low-latency tuning flags (`#media=video#backchannel=0#transport=tcp#backlog=0`) applied to all RTSP streams.
-- 📸 **Native High-Resolution Photo Snapshot**
+- **Native High-Resolution Photo Snapshot**
   - Instantly captures uncompressed frames directly from the GPU decoder at **100% native camera resolution** (e.g. 4K 3840×2160 or 1080p).
   - Shutter flash visual feedback, download toast notification, and customizable format (JPEG 98% / PNG Lossless).
-- 🎬 **Start / Stop Video Recording**
+- **Start / Stop Video Recording**
   - In-browser live recording (`MediaRecorder`) without adding any delay to the live operator display.
-  - Live recording indicator (`🔴 REC 00:15`) with elapsed timer.
+  - Live recording indicator (`REC 00:15`) with elapsed timer.
   - Configurable recording bitrate (from 2 Mbps up to 15 Mbps 4K Ultra Quality).
-- 🔍 **Live Stream Diagnostics & Logs**
+- **Live Stream Diagnostics & Logs**
   - Real-time logging of WebSocket signaling, ICE candidates, WebRTC PeerConnection states, and decoder errors directly inside the panel.
-- 🎨 **Adaptive UI & Themes**
+- **Adaptive UI & Themes**
   - Fully supports Light and Dark modes in Foxglove Studio / Lichtblick.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```mermaid
 graph LR
     Camera["IP Camera / Drone<br/>(RTSP H.264/H.265 4K)"] -->|"RTSP / TCP"| go2rtc["go2rtc Gateway<br/>(:1984 / :8555)"]
     Panel["Foxglove / Lichtblick<br/>foxglove-rtsp-webrtc-extension"] -->|"1. Auto Register RTSP URL<br/>PUT /api/streams?name=...&src=..."| go2rtc
     go2rtc -->|"2. WebRTC Stream<br/>(Low Latency)"| Panel
-    Panel -->|"📸 4K Snapshot"| Download1["Downloads (.jpg / .png)"]
-    Panel -->|"🎬 Video Record"| Download2["Downloads (.webm / .mp4)"]
+    Panel -->|"4K Snapshot"| Download1["Downloads (.jpg / .png)"]
+    Panel -->|"Video Record"| Download2["Downloads (.webm / .mp4)"]
 ```
 
 ---
 
-## 📦 Prerequisites
+## Prerequisites
 
 1. **Node.js** (v18 or newer) and **Yarn**:
    ```bash
@@ -56,7 +56,7 @@ graph LR
 
 ---
 
-## 🛠️ Building & Packaging the Extension
+## Building & Packaging the Extension
 
 1. **Clone or navigate to the extension repository:**
    ```bash
@@ -81,7 +81,7 @@ graph LR
 
 ---
 
-## 📥 Installation
+## Installation
 
 ### Method 1: Automatic / GUI Installation (Foxglove Studio / Lichtblick)
 - Open Foxglove Studio or Lichtblick.
@@ -105,7 +105,7 @@ Restart or press `Ctrl + R` in Foxglove / Lichtblick to reload.
 
 ---
 
-## ⚙️ Running go2rtc on Linux (Systemd Service)
+## Running go2rtc on Linux (Systemd Service)
 
 Create `~/.config/systemd/user/go2rtc.service`:
 
@@ -134,11 +134,11 @@ systemctl --user status go2rtc.service
 
 ---
 
-## 🎮 How to Use in Foxglove / Lichtblick
+## How to Use in Foxglove / Lichtblick
 
 1. Open Foxglove Studio / Lichtblick.
 2. Click **Add Panel** (`+` button) and select **`RTSP WebRTC Extension`** (or `RTSP WebRTC Streamer`).
-3. Open the **Panel Settings (⚙️ icon)** on the right sidebar:
+3. Open the **Panel Settings (Settings icon)** on the right sidebar:
    - **RTSP Stream URL:** Paste your camera RTSP URL directly, for example:
      ```text
      rtsp://admin:password@192.168.1.100:554/live/ch0
@@ -146,17 +146,18 @@ systemctl --user status go2rtc.service
    - The panel automatically connects with ultra-low latency!
    - **Video Fit:** Choose `Contain` (keep aspect ratio), `Cover`, or `Fill`.
 
-### 📸 Taking Snapshots
+### Taking Snapshots
 - Click the blue **`Capture Photo`** button in the top-right corner of the video.
 - The snapshot is captured at **native stream resolution** (3840×2160 for 4K) and automatically saved to your `Downloads` folder.
 
-### 🎬 Recording Video
+### Recording Video
 - Click the **`Record Video`** button in the top-right corner.
-- The button turns red with a live timer (`⏹ Stop Rec (00:10)`) and a `🔴 REC` pill appears in the top-left corner.
+- The button turns red with a live timer (`Stop Rec (00:10)`) and a `REC` pill appears in the top-left corner.
 - Click **Stop Rec** to finish and save the `.webm` / `.mp4` video to your `Downloads` folder.
 
 ---
 
-## 📄 License
+## License
 
 MIT License. Developed for advanced robotics, teleoperation, and GCS control.
+
